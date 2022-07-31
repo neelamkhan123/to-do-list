@@ -1,0 +1,392 @@
+@use 'config' as *;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: $bg-gradient;
+  background-size: 200%;
+  animation: bg-animation 5s infinite alternate;
+  overflow: hidden;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+
+  // Task Page
+  .box-container {
+    background: linear-gradient(white 60%, rgb(209, 200, 200));
+    height: 600px;
+    width: 600px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: scroll;
+    position: relative;
+
+    .header {
+      text-align: center;
+      padding-top: 0.5rem;
+      font-family: 'Zilla Slab', serif;
+      position: sticky;
+      top: 0;
+      background-color: #fff;
+    }
+
+    .tasks {
+      .task-list {
+        list-style: none;
+
+        .task {
+          display: flex;
+          align-items: center;
+          border-bottom: $border 0.5px solid;
+          line-height: 1.2;
+          margin: 0 1rem;
+          padding: 0.5rem 0;
+
+          input[type='checkbox'] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 1.2rem;
+            height: 1.2rem;
+            background-color: #fff;
+            border-radius: 50%;
+            border: $primary-color solid 2px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            outline: none;
+
+            &::after {
+              font-family: 'Font Awesome 5 Free';
+              font-weight: 900;
+              content: '\f00c';
+              height: 1rem;
+              width: 1rem;
+              background-color: #fff;
+              border-radius: 50%;
+              color: $primary-color;
+              display: none;
+            }
+
+            &:checked {
+              background-color: $check;
+
+              &::after {
+                display: block;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+            }
+          }
+
+          .new-task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 1rem;
+            font-family: 'Edu NSW ACT Foundation', cursive;
+            font-size: 1.5rem;
+            width: 33rem;
+
+            .text {
+              flex: 8;
+            }
+
+            .due-date {
+              font-family: 'Zilla Slab', serif;
+              font-size: 1rem;
+              font-weight: bold;
+              white-space: nowrap;
+              flex: 1;
+            }
+
+            .delete-btn {
+              background-color: transparent;
+              border: none;
+              color: grey;
+              font-size: 1rem;
+              cursor: pointer;
+              flex: 1;
+
+              &:hover {
+                color: red;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .primary-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .add-btn {
+        background: linear-gradient($secondary-color, $btn-shadow);
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        border: none;
+        font-size: 2rem;
+        color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        position: absolute;
+        top: 500px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  // Upload Modal Page
+  .upload-page {
+    position: absolute;
+
+    .modal-container {
+      background-color: #fff;
+      height: 600px;
+      width: 600px;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      box-sizing: border-box;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+
+      .exit-page {
+        display: flex;
+        justify-content: flex-end;
+
+        .close-modal-btn {
+          background-color: transparent;
+          border: none;
+          padding-top: 1.5rem;
+          font-size: 1rem;
+          cursor: pointer;
+
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+
+      #form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 400px;
+
+        .form-data {
+          font-family: 'Zilla Slab', serif;
+          font-weight: bold;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 3rem;
+          padding-bottom: 3rem;
+          border-bottom: $border 0.5px solid;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          label {
+            font-size: 1.7rem;
+          }
+
+          .upload-input {
+            width: 20rem;
+            border-color: $border;
+            border-radius: 5px;
+            outline: none;
+            font-family: 'Zilla Slab', serif;
+            font-weight: bold;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    .modal-btn {
+      display: flex;
+      justify-content: center;
+
+      .upload-btn {
+        box-sizing: border-box;
+        padding: 1rem 2rem;
+        font-size: 1.7rem;
+        background: linear-gradient($secondary-color, $btn-shadow);
+        border: none;
+        color: #fff;
+        font-family: 'Zilla Slab', serif;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// Media Queries
+
+// Mobile
+@media (max-width: 400px), (max-height: 800px) {
+  #main {
+    .box-container {
+      width: 300px;
+
+      .header {
+        font-size: 0.7rem;
+      }
+      .tasks {
+        .task-list {
+          .task {
+            input[type='checkbox'] {
+              width: 1.4rem;
+              height: 0.8rem;
+              border: $primary-color solid 1.5px;
+
+              &::after {
+                width: 0.5rem;
+                height: 0.5rem;
+              }
+            }
+
+            .new-task {
+              font-size: 1rem;
+
+              .due-date {
+                font-size: 0.7rem;
+              }
+
+              .delete-btn {
+                font-size: 0.7rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .upload-page {
+      .modal-container {
+        width: 300px;
+
+        #form {
+          .form-data {
+            label {
+              font-size: 1rem;
+            }
+
+            .upload-input {
+              width: 9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// iPhone 4
+@media (max-width: 320px), (max-height: 480px) {
+  #main {
+    .box-container {
+      width: 250px;
+      height: 400px;
+
+      .header {
+        font-size: 0.7rem;
+      }
+      .tasks {
+        .task-list {
+          .task {
+            input[type='checkbox'] {
+              width: 1.7rem;
+              height: 0.8rem;
+              border: $primary-color solid 1.5px;
+
+              &::after {
+                width: 0.5rem;
+                height: 0.5rem;
+              }
+            }
+
+            .new-task {
+              font-size: 0.7rem;
+
+              .due-date {
+                font-size: 0.6rem;
+              }
+
+              .delete-btn {
+                font-size: 0.6rem;
+              }
+            }
+          }
+        }
+      }
+
+      .primary-btn {
+        .add-btn {
+          top: 300px;
+          height: 40px;
+          width: 40px;
+        }
+      }
+    }
+
+    .upload-page {
+      .modal-container {
+        width: 250px;
+        height: 400px;
+
+        #form {
+          .form-data {
+            label {
+              font-size: 1rem;
+            }
+
+            .upload-input {
+              width: 5rem;
+              font-size: 0.6rem;
+            }
+          }
+        }
+      }
+
+      .modal-btn {
+        .upload-btn {
+          font-size: 1rem;
+          padding: 0.7rem 1rem;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
