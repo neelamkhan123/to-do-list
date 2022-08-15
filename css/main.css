@@ -52,17 +52,21 @@ body {
 #main .box-container {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, white), to(rgb(209, 200, 200)));
   background: linear-gradient(white 60%, rgb(209, 200, 200));
-  height: 600px;
-  width: 400px;
+  height: 750px;
+  width: 600px;
   border-radius: 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow: scroll;
+  position: relative;
 }
 #main .box-container .header {
   text-align: center;
   padding-top: 0.5rem;
   font-family: "Zilla Slab", serif;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
 }
 #main .box-container .tasks .task-list {
   list-style: none;
@@ -139,12 +143,34 @@ body {
   padding-left: 1rem;
   font-family: "Edu NSW ACT Foundation", cursive;
   font-size: 1.5rem;
-  width: 20rem;
+  width: 33rem;
+}
+#main .box-container .tasks .task-list .task .new-task .text {
+  -webkit-box-flex: 8;
+      -ms-flex: 8;
+          flex: 8;
 }
 #main .box-container .tasks .task-list .task .new-task .due-date {
   font-family: "Zilla Slab", serif;
   font-size: 1rem;
   font-weight: bold;
+  white-space: nowrap;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+#main .box-container .tasks .task-list .task .new-task .delete-btn {
+  background-color: transparent;
+  border: none;
+  color: grey;
+  font-size: 1rem;
+  cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+#main .box-container .tasks .task-list .task .new-task .delete-btn:hover {
+  color: red;
 }
 #main .box-container .primary-btn {
   display: -webkit-box;
@@ -168,8 +194,8 @@ body {
   color: #fff;
   -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  position: fixed;
-  top: 650px;
+  position: absolute;
+  top: 600px;
   cursor: pointer;
 }
 #main .upload-page {
@@ -177,8 +203,8 @@ body {
 }
 #main .upload-page .modal-container {
   background-color: #fff;
-  height: 600px;
-  width: 400px;
+  height: 750px;
+  width: 600px;
   border-radius: 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -223,6 +249,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   height: 400px;
+  margin-bottom: 8rem;
 }
 #main .upload-page .modal-container #form .form-data {
   font-family: "Zilla Slab", serif;
@@ -244,7 +271,7 @@ body {
   font-size: 1.7rem;
 }
 #main .upload-page .modal-container #form .form-data .upload-input {
-  width: 10rem;
+  width: 20rem;
   border-color: rgb(233, 222, 222);
   border-radius: 5px;
   outline: none;
@@ -273,4 +300,186 @@ body {
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
+}
+
+@media (max-width: 768px) and (max-height: 1024px) {
+  #main .box-container {
+    width: 700px;
+    height: 1000px;
+  }
+  #main .box-container .header {
+    font-size: 1.4rem;
+  }
+  #main .box-container .tasks .task-list .task input[type=checkbox] {
+    width: 1.4rem;
+    height: 1.4rem;
+    border: rgb(153, 11, 248) solid 1.5px;
+  }
+  #main .box-container .tasks .task-list .task input[type=checkbox]::after {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  #main .box-container .tasks .task-list .task .new-task {
+    font-size: 1.5rem;
+    padding-left: 0.6rem;
+    width: 70rem;
+  }
+  #main .box-container .tasks .task-list .task .new-task .due-date {
+    font-size: 1rem;
+  }
+  #main .box-container .tasks .task-list .task .new-task .delete-btn {
+    font-size: 1rem;
+  }
+  #main .box-container .primary-btn .add-btn {
+    top: 900px;
+    height: 60px;
+    width: 60px;
+    font-size: 2rem;
+  }
+  #main .upload-page .modal-container {
+    width: 700px;
+    height: 1000px;
+  }
+  #main .upload-page .modal-container #form {
+    margin-bottom: 20rem;
+  }
+  #main .upload-page .modal-container #form .form-data label {
+    font-size: 2rem;
+  }
+  #main .upload-page .modal-container #form .form-data .upload-input {
+    width: 27rem;
+    font-size: 1rem;
+  }
+  #main .upload-page .modal-btn .upload-btn {
+    font-size: 2rem;
+    padding: 0.7rem 1rem;
+  }
+}
+@media (max-width: 420px) and (max-height: 900px) {
+  #main .box-container {
+    width: 350px;
+    height: 700px;
+  }
+  #main .box-container .header {
+    font-size: 0.9rem;
+  }
+  #main .box-container .tasks .task-list .task input[type=checkbox] {
+    width: 1.7rem;
+    height: 1rem;
+    border: rgb(153, 11, 248) solid 1.5px;
+  }
+  #main .box-container .tasks .task-list .task input[type=checkbox]::after {
+    width: 0.85rem;
+    height: 0.85rem;
+  }
+  #main .box-container .tasks .task-list .task .new-task {
+    font-size: 1.1rem;
+    padding-left: 0.6rem;
+  }
+  #main .box-container .tasks .task-list .task .new-task .due-date {
+    font-size: 0.6rem;
+  }
+  #main .box-container .tasks .task-list .task .new-task .delete-btn {
+    font-size: 0.7rem;
+  }
+  #main .box-container .primary-btn .add-btn {
+    top: 600px;
+    height: 40px;
+    width: 40px;
+    font-size: 1.6rem;
+  }
+  #main .upload-page .modal-container {
+    width: 350px;
+    height: 700px;
+  }
+  #main .upload-page .modal-container #form {
+    margin-bottom: 8rem;
+  }
+  #main .upload-page .modal-container #form .form-data label {
+    font-size: 1.4rem;
+  }
+  #main .upload-page .modal-container #form .form-data .upload-input {
+    width: 9rem;
+    font-size: 1rem;
+  }
+  #main .upload-page .modal-btn .upload-btn {
+    font-size: 1.5rem;
+    padding: 0.7rem 1rem;
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 390px), (max-height: 850px) {
+  #main .box-container {
+    width: 350px;
+    height: 700px;
+  }
+  #main .box-container .primary-btn .add-btn {
+    top: 600px;
+  }
+  #main .upload-page .modal-container {
+    width: 350px;
+    height: 700px;
+  }
+  #main .upload-page .modal-container #form {
+    margin-bottom: 3rem;
+  }
+  #main .upload-page .modal-container #form .form-data label {
+    font-size: 1.2rem;
+  }
+  #main .upload-page .modal-container #form .form-data .upload-input {
+    width: 10rem;
+  }
+}
+@media (max-width: 400px) and (max-height: 700px) {
+  #main .box-container {
+    width: 300px;
+    height: 450px;
+  }
+  #main .box-container .header {
+    font-size: 0.9rem;
+  }
+  #main .box-container .tasks .task-list .task input[type=checkbox] {
+    width: 1.7rem;
+    height: 1rem;
+    border: rgb(153, 11, 248) solid 1.5px;
+  }
+  #main .box-container .tasks .task-list .task input[type=checkbox]::after {
+    width: 0.85rem;
+    height: 0.85rem;
+  }
+  #main .box-container .tasks .task-list .task .new-task {
+    font-size: 1.1rem;
+    padding-left: 0.6rem;
+  }
+  #main .box-container .tasks .task-list .task .new-task .due-date {
+    font-size: 0.6rem;
+  }
+  #main .box-container .tasks .task-list .task .new-task .delete-btn {
+    font-size: 0.7rem;
+  }
+  #main .box-container .primary-btn .add-btn {
+    top: 380px;
+    height: 40px;
+    width: 40px;
+    font-size: 1.6rem;
+  }
+  #main .upload-page .modal-container {
+    width: 300px;
+    height: 450px;
+  }
+  #main .upload-page .modal-container #form {
+    margin-bottom: 3rem;
+  }
+  #main .upload-page .modal-container #form .form-data label {
+    font-size: 1rem;
+  }
+  #main .upload-page .modal-container #form .form-data .upload-input {
+    width: 9rem;
+    font-size: 0.7rem;
+  }
+  #main .upload-page .modal-btn .upload-btn {
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+    margin-bottom: 2rem;
+  }
 }/*# sourceMappingURL=main.css.map */

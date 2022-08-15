@@ -39,7 +39,7 @@ body {
   // Task Page
   .box-container {
     background: linear-gradient(white 60%, rgb(209, 200, 200));
-    height: 600px;
+    height: 750px;
     width: 600px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -158,7 +158,7 @@ body {
         color: #fff;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         position: absolute;
-        top: 500px;
+        top: 600px;
         cursor: pointer;
       }
     }
@@ -170,7 +170,7 @@ body {
 
     .modal-container {
       background-color: #fff;
-      height: 600px;
+      height: 750px;
       width: 600px;
       border-radius: 10px;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -201,6 +201,7 @@ body {
         flex-direction: column;
         justify-content: center;
         height: 400px;
+        margin-bottom: 8rem;
 
         .form-data {
           font-family: 'Zilla Slab', serif;
@@ -252,100 +253,46 @@ body {
   }
 }
 
+/////////////////////////////////////////////////////////////////////////
 // Media Queries
 
-// Mobile
-@media (max-width: 400px), (max-height: 800px) {
+// Tablets
+
+// iPad
+@media (max-width: 768px) and (max-height: 1024px) {
   #main {
     .box-container {
-      width: 300px;
+      width: 700px;
+      height: 1000px;
 
       .header {
-        font-size: 0.7rem;
+        font-size: 1.4rem;
       }
       .tasks {
         .task-list {
           .task {
             input[type='checkbox'] {
               width: 1.4rem;
-              height: 0.8rem;
+              height: 1.4rem;
               border: $primary-color solid 1.5px;
 
               &::after {
-                width: 0.5rem;
-                height: 0.5rem;
+                width: 1.2rem;
+                height: 1.2rem;
               }
             }
 
             .new-task {
-              font-size: 1rem;
+              font-size: 1.5rem;
+              padding-left: 0.6rem;
+              width: 70rem;
 
               .due-date {
-                font-size: 0.7rem;
+                font-size: 1rem;
               }
 
               .delete-btn {
-                font-size: 0.7rem;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .upload-page {
-      .modal-container {
-        width: 300px;
-
-        #form {
-          .form-data {
-            label {
-              font-size: 1rem;
-            }
-
-            .upload-input {
-              width: 9rem;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-// iPhone 4
-@media (max-width: 320px), (max-height: 480px) {
-  #main {
-    .box-container {
-      width: 250px;
-      height: 400px;
-
-      .header {
-        font-size: 0.7rem;
-      }
-      .tasks {
-        .task-list {
-          .task {
-            input[type='checkbox'] {
-              width: 1.7rem;
-              height: 0.8rem;
-              border: $primary-color solid 1.5px;
-
-              &::after {
-                width: 0.5rem;
-                height: 0.5rem;
-              }
-            }
-
-            .new-task {
-              font-size: 0.7rem;
-
-              .due-date {
-                font-size: 0.6rem;
-              }
-
-              .delete-btn {
-                font-size: 0.6rem;
+                font-size: 1rem;
               }
             }
           }
@@ -354,27 +301,228 @@ body {
 
       .primary-btn {
         .add-btn {
-          top: 300px;
-          height: 40px;
-          width: 40px;
+          top: 900px;
+          height: 60px;
+          width: 60px;
+          font-size: 2rem;
         }
       }
     }
 
     .upload-page {
       .modal-container {
-        width: 250px;
-        height: 400px;
+        width: 700px;
+        height: 1000px;
 
         #form {
+          margin-bottom: 20rem;
+          .form-data {
+            label {
+              font-size: 2rem;
+            }
+
+            .upload-input {
+              width: 27rem;
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+
+      .modal-btn {
+        .upload-btn {
+          font-size: 2rem;
+          padding: 0.7rem 1rem;
+        }
+      }
+    }
+  }
+}
+
+// Mobile
+
+// iPhone 6/7/8 PLUS + XR
+@media (max-width: 420px) and (max-height: 900px) {
+  #main {
+    .box-container {
+      width: 350px;
+      height: 700px;
+
+      .header {
+        font-size: 0.9rem;
+      }
+      .tasks {
+        .task-list {
+          .task {
+            input[type='checkbox'] {
+              width: 1.7rem;
+              height: 1rem;
+              border: $primary-color solid 1.5px;
+
+              &::after {
+                width: 0.85rem;
+                height: 0.85rem;
+              }
+            }
+
+            .new-task {
+              font-size: 1.1rem;
+              padding-left: 0.6rem;
+
+              .due-date {
+                font-size: 0.6rem;
+              }
+
+              .delete-btn {
+                font-size: 0.7rem;
+              }
+            }
+          }
+        }
+      }
+
+      .primary-btn {
+        .add-btn {
+          top: 600px;
+          height: 40px;
+          width: 40px;
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    .upload-page {
+      .modal-container {
+        width: 350px;
+        height: 700px;
+
+        #form {
+          margin-bottom: 8rem;
+          .form-data {
+            label {
+              font-size: 1.4rem;
+            }
+
+            .upload-input {
+              width: 9rem;
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+
+      .modal-btn {
+        .upload-btn {
+          font-size: 1.5rem;
+          padding: 0.7rem 1rem;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
+// iPhone X/12 Pro
+@media (max-width: 390px), (max-height: 850px) {
+  #main {
+    .box-container {
+      width: 350px;
+      height: 700px;
+
+      .primary-btn {
+        .add-btn {
+          top: 600px;
+        }
+      }
+    }
+
+    .upload-page {
+      .modal-container {
+        width: 350px;
+        height: 700px;
+
+        #form {
+          margin-bottom: 3rem;
+          .form-data {
+            label {
+              font-size: 1.2rem;
+            }
+
+            .upload-input {
+              width: 10rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// iPhone 4/5/6/7/8
+@media (max-width: 400px) and (max-height: 700px) {
+  #main {
+    .box-container {
+      width: 300px;
+      height: 450px;
+
+      .header {
+        font-size: 0.9rem;
+      }
+      .tasks {
+        .task-list {
+          .task {
+            input[type='checkbox'] {
+              width: 1.7rem;
+              height: 1rem;
+              border: $primary-color solid 1.5px;
+
+              &::after {
+                width: 0.85rem;
+                height: 0.85rem;
+              }
+            }
+
+            .new-task {
+              font-size: 1.1rem;
+              padding-left: 0.6rem;
+
+              .due-date {
+                font-size: 0.6rem;
+              }
+
+              .delete-btn {
+                font-size: 0.7rem;
+              }
+            }
+          }
+        }
+      }
+
+      .primary-btn {
+        .add-btn {
+          top: 380px;
+          height: 40px;
+          width: 40px;
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    .upload-page {
+      .modal-container {
+        width: 300px;
+        height: 450px;
+
+        #form {
+          margin-bottom: 3rem;
           .form-data {
             label {
               font-size: 1rem;
             }
 
             .upload-input {
-              width: 5rem;
-              font-size: 0.6rem;
+              width: 9rem;
+              font-size: 0.7rem;
             }
           }
         }
@@ -384,7 +532,7 @@ body {
         .upload-btn {
           font-size: 1rem;
           padding: 0.7rem 1rem;
-          margin-bottom: 1rem;
+          margin-bottom: 2rem;
         }
       }
     }
