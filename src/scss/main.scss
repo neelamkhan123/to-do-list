@@ -149,6 +149,8 @@ body {
       align-items: center;
 
       .add-btn {
+        justify-content: center;
+        align-items: center;
         background: linear-gradient($secondary-color, $btn-shadow);
         height: 50px;
         width: 50px;
@@ -346,7 +348,7 @@ body {
   #main {
     .box-container {
       width: 350px;
-      height: 700px;
+      height: 650px;
 
       .header {
         font-size: 0.9rem;
@@ -355,7 +357,7 @@ body {
         .task-list {
           .task {
             input[type='checkbox'] {
-              width: 1.7rem;
+              width: 3.5rem;
               height: 1rem;
               border: $primary-color solid 1.5px;
 
@@ -383,7 +385,7 @@ body {
 
       .primary-btn {
         .add-btn {
-          top: 600px;
+          top: 550px;
           height: 40px;
           width: 40px;
           font-size: 1.6rem;
@@ -404,7 +406,7 @@ body {
             }
 
             .upload-input {
-              width: 9rem;
+              width: 10rem;
               font-size: 1rem;
             }
           }
